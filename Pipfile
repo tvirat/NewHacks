@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pygame-ce = "*"
+openai = "*"
+python-dotenv = "*"
 
 [dev-packages]
 ruff = "*"
