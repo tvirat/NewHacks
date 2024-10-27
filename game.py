@@ -66,35 +66,58 @@ class Terrain:
     def __init__(self, tmx_data):
         self.tmx_data = tmx_data
         self.collision_rects = []
-        self.load_collision_tiles()
+        self.tiles = []  # Store all tiles with their types
+        self.collision_types = {'terrain', 'tree', 'mushroom', 'platform'}
+        self.load_tiles()
     
-    def load_collision_tiles(self):
-        """Load collision rectangles from tiles with specific class properties"""
+    def load_tiles(self):
+        """Load all tiles and their properties"""
         for layer in self.tmx_data.visible_layers:
-            if hasattr(layer, 'data'):  # If it's a tile layer
+            if hasattr(layer, 'data'):
                 for x, y, gid in layer.iter_data():
                     if gid:  # If there's a tile at this position
                         tile_props = self.tmx_data.get_tile_properties_by_gid(gid)
-                        if tile_props and 'type' in tile_props:
-                            # Check if the tile has a type that should collide
-                            if tile_props['type'] in ['terrain', 'tree', 'platform', 'solid']:  
-                                # Convert tile coordinates to pixel coordinates
-                                pixel_x = x * self.tmx_data.tilewidth
-                                pixel_y = y * self.tmx_data.tileheight
-                                # Create a collision rectangle
-                                rect = pygame.Rect(
-                                    pixel_x, 
-                                    pixel_y, 
-                                    self.tmx_data.tilewidth, 
-                                    self.tmx_data.tileheight
-                                )
-                                # Store the type type along with the rectangle
-                                self.collision_rects.append({
-                                    'rect': rect,
-                                    'type': tile_props['type']
-                                })
+                        if tile_props:
+                            # Convert tile coordinates to pixel coordinates
+                            pixel_x = x * self.tmx_data.tilewidth
+                            pixel_y = y * self.tmx_data.tileheight
+                            # Create a rectangle for this tile
+                            rect = pygame.Rect(
+                                pixel_x, 
+                                pixel_y, 
+                                self.tmx_data.tilewidth, 
+                                self.tmx_data.tileheight
+                            )
+                            
+                            # Store tile data
+                            tile_data = {
+                                'rect': rect,
+                                'type': tile_props.get('type', 'default'),
+                                'gid': gid
+                            }
+                            
+                            self.tiles.append(tile_data)
+                            
+                            # If it's a collision tile, add to collision_rects
+                            if tile_props.get('type') in self.collision_types:
+                                self.collision_rects.append(tile_data)
     
     def draw(self, surface, camera_offset=(0, 0)):
+        """Draw all tiles with their actual images"""
+        for tile in self.tiles:
+            # Get the tile image from the tmx data
+            tile_image = self.tmx_data.get_tile_image_by_gid(tile['gid'])
+            if tile_image:
+                # Adjust position for camera offset
+                draw_x = tile['rect'].x - camera_offset[0]
+                draw_y = tile['rect'].y - camera_offset[1]
+                surface.blit(tile_image, (draw_x, draw_y))
+    
+    def get_slime_rects(self):
+        """Return a list of rectangles for all slime tiles"""
+        return [tile['rect'] for tile in self.tiles if tile['type'] == 'slime']
+    
+    def draw_dev(self, surface, camera_offset=(0, 0)):
         """Draw the terrain collision boxes (for debugging)"""
         colors = {
             'terrain': (255, 0, 0),    # Red for ground
@@ -352,23 +375,12 @@ def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score,
         elif background_x <= -WIDTH:
             background_x = 0
 
-        # Check for coin collisions
-        for coin in coins[:]:
-            if player.rect.colliderect(coin):
-                coins.remove(coin)
-                score += 1
+        # Get slime positions from the terrain
+        slime_rects = terrain.get_slime_rects()
         
-        # Check for obstacle/slime collisions
-        for obstacle in obstacles[:]:
-            if player.rect.colliderect(obstacle):
-                obstacles.remove(obstacle)
-                lives -= 1
-                if lives == 0:
-                    running = False
-        
-        for slime in slimes[:]:
-            if player.rect.colliderect(slime):
-                slimes.remove(slime)
+        # Check for collisions with slimes
+        for slime_rect in slime_rects:
+            if player.rect.colliderect(slime_rect):
                 lives -= 1
                 if lives == 0:
                     running = False
@@ -380,7 +392,10 @@ def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score,
         screen.blit(background, (background_x + WIDTH, 0))
         
         # Draw terrain collision boxes (optional, for debugging)
-        #terrain.draw(screen, (background_x, 0))
+        #terrain.draw_dev(screen, (background_x, 0))
+        
+        #slime
+        terrain.draw(screen, (background_x, 0))
         
         # Draw player (using your monster image)
         screen.blit(monster, player.rect.topleft)
@@ -391,12 +406,8 @@ def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score,
 
         # Draw scores counter
         draw_score(screen, score, 10, 10)
-        for coin in coins:
-            screen.blit(coin_image, coin.topleft)
         for obstacle in obstacles:
             screen.blit(obstacle_image, obstacle.topleft)
-        for slime in slimes:
-            screen.blit(slime_image, slime.topleft)
 
         pygame.display.flip()
         clock.tick(FPS)
