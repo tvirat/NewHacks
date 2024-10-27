@@ -1,9 +1,967 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1">
- <tileset firstgid="1" source="../OneDrive/Documents/newhacks2024/beachy_set_2x.tsx"/>
- <tileset firstgid="3073" source="../OneDrive/Documents/newhacks2024/backgroundx4.tsx"/>
- <tileset firstgid="4417" source="../OneDrive/Documents/newhacks2024/country_backgroundx4.tsx"/>
- <tileset firstgid="9793" source="../OneDrive/Documents/newhacks2024/beachy_16_x2.tsx"/>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="1">
+ <editorsettings>
+  <export target="first_level_export.tmx" format="tmx"/>
+ </editorsettings>
+ <tileset firstgid="1" name="beachy_set_2x" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
+  <image source="images/generic_platformer_tiles_2x.png" width="2048" height="1536"/>
+ </tileset>
+ <tileset firstgid="3073" name="backgroundx4" tilewidth="32" tileheight="32" tilecount="1344" columns="48">
+  <image source="images/country-platform-back_4x.png" width="1536" height="896"/>
+ </tileset>
+ <tileset firstgid="4417" name="country_backgroundx4" tilewidth="16" tileheight="16" tilecount="5376" columns="96">
+  <image source="images/country-platform-back_4x.png" width="1536" height="896"/>
+ </tileset>
+ <tileset firstgid="9793" name="beachy_16_x2" tilewidth="16" tileheight="16" tilecount="12288" columns="128">
+  <image source="images/generic_platformer_tiles_2x.png" width="2048" height="1536"/>
+  <tile id="599" type="terrain"/>
+  <tile id="600" type="terrain"/>
+  <tile id="601" type="terrain"/>
+  <tile id="602" type="terrain"/>
+  <tile id="603" type="terrain"/>
+  <tile id="604" type="terrain"/>
+  <tile id="605" type="terrain"/>
+  <tile id="606" type="terrain"/>
+  <tile id="607" type="terrain"/>
+  <tile id="608" type="terrain"/>
+  <tile id="609" type="terrain"/>
+  <tile id="610" type="terrain"/>
+  <tile id="611" type="terrain"/>
+  <tile id="612" type="terrain"/>
+  <tile id="613" type="terrain"/>
+  <tile id="614" type="terrain"/>
+  <tile id="615" type="terrain"/>
+  <tile id="616" type="terrain"/>
+  <tile id="617" type="terrain"/>
+  <tile id="618" type="terrain"/>
+  <tile id="619" type="terrain"/>
+  <tile id="620" type="terrain"/>
+  <tile id="621" type="terrain"/>
+  <tile id="622" type="terrain"/>
+  <tile id="623" type="terrain"/>
+  <tile id="624" type="terrain"/>
+  <tile id="727" type="terrain"/>
+  <tile id="728" type="terrain"/>
+  <tile id="729" type="terrain"/>
+  <tile id="730" type="terrain"/>
+  <tile id="731" type="terrain"/>
+  <tile id="732" type="terrain"/>
+  <tile id="733" type="terrain"/>
+  <tile id="734" type="terrain"/>
+  <tile id="735" type="terrain"/>
+  <tile id="736" type="terrain"/>
+  <tile id="737" type="terrain"/>
+  <tile id="738" type="terrain"/>
+  <tile id="739" type="terrain"/>
+  <tile id="740" type="terrain"/>
+  <tile id="741" type="terrain"/>
+  <tile id="742" type="terrain"/>
+  <tile id="743" type="terrain"/>
+  <tile id="744" type="terrain"/>
+  <tile id="745" type="terrain"/>
+  <tile id="746" type="terrain"/>
+  <tile id="747" type="terrain"/>
+  <tile id="748" type="terrain"/>
+  <tile id="749" type="terrain"/>
+  <tile id="750" type="terrain"/>
+  <tile id="751" type="terrain"/>
+  <tile id="752" type="terrain"/>
+  <tile id="856" type="terrain"/>
+  <tile id="857" type="terrain"/>
+  <tile id="858" type="terrain"/>
+  <tile id="859" type="terrain"/>
+  <tile id="860" type="terrain"/>
+  <tile id="861" type="terrain"/>
+  <tile id="862" type="terrain"/>
+  <tile id="863" type="terrain"/>
+  <tile id="864" type="terrain"/>
+  <tile id="865" type="terrain"/>
+  <tile id="866" type="terrain"/>
+  <tile id="867" type="terrain"/>
+  <tile id="868" type="terrain"/>
+  <tile id="869" type="terrain"/>
+  <tile id="870" type="terrain"/>
+  <tile id="871" type="terrain"/>
+  <tile id="872" type="terrain"/>
+  <tile id="873" type="terrain"/>
+  <tile id="874" type="terrain"/>
+  <tile id="875" type="terrain"/>
+  <tile id="876" type="terrain"/>
+  <tile id="877" type="terrain"/>
+  <tile id="878" type="terrain"/>
+  <tile id="879" type="terrain"/>
+  <tile id="984" type="terrain"/>
+  <tile id="985" type="terrain"/>
+  <tile id="986" type="terrain"/>
+  <tile id="987" type="terrain"/>
+  <tile id="988" type="terrain"/>
+  <tile id="989" type="terrain"/>
+  <tile id="990" type="terrain"/>
+  <tile id="991" type="terrain"/>
+  <tile id="992" type="terrain"/>
+  <tile id="993" type="terrain"/>
+  <tile id="994" type="terrain"/>
+  <tile id="995" type="terrain"/>
+  <tile id="996" type="terrain"/>
+  <tile id="997" type="terrain"/>
+  <tile id="998" type="terrain"/>
+  <tile id="999" type="terrain"/>
+  <tile id="1000" type="terrain"/>
+  <tile id="1001" type="terrain"/>
+  <tile id="1002" type="terrain"/>
+  <tile id="1003" type="terrain"/>
+  <tile id="1004" type="terrain"/>
+  <tile id="1005" type="terrain"/>
+  <tile id="1006" type="terrain"/>
+  <tile id="1007" type="terrain"/>
+  <tile id="1112" type="terrain"/>
+  <tile id="1113" type="terrain"/>
+  <tile id="1114" type="terrain"/>
+  <tile id="1115" type="terrain"/>
+  <tile id="1116" type="terrain"/>
+  <tile id="1117" type="terrain"/>
+  <tile id="1118" type="terrain"/>
+  <tile id="1119" type="terrain"/>
+  <tile id="1120" type="terrain"/>
+  <tile id="1121" type="terrain"/>
+  <tile id="1122" type="terrain"/>
+  <tile id="1123" type="terrain"/>
+  <tile id="1124" type="terrain"/>
+  <tile id="1125" type="terrain"/>
+  <tile id="1126" type="terrain"/>
+  <tile id="1127" type="terrain"/>
+  <tile id="1128" type="terrain"/>
+  <tile id="1129" type="terrain"/>
+  <tile id="1130" type="terrain"/>
+  <tile id="1131" type="terrain"/>
+  <tile id="1240" type="terrain"/>
+  <tile id="1241" type="terrain"/>
+  <tile id="1242" type="terrain"/>
+  <tile id="1243" type="terrain"/>
+  <tile id="1244" type="terrain"/>
+  <tile id="1245" type="terrain"/>
+  <tile id="1246" type="terrain"/>
+  <tile id="1247" type="terrain"/>
+  <tile id="1248" type="terrain"/>
+  <tile id="1249" type="terrain"/>
+  <tile id="1250" type="terrain"/>
+  <tile id="1251" type="terrain"/>
+  <tile id="1252" type="terrain"/>
+  <tile id="1253" type="terrain"/>
+  <tile id="1254" type="terrain"/>
+  <tile id="1255" type="terrain"/>
+  <tile id="1256" type="terrain"/>
+  <tile id="1257" type="terrain"/>
+  <tile id="1258" type="terrain"/>
+  <tile id="1259" type="terrain"/>
+  <tile id="1368" type="terrain"/>
+  <tile id="1369" type="terrain"/>
+  <tile id="1370" type="terrain"/>
+  <tile id="1371" type="terrain"/>
+  <tile id="1372" type="terrain"/>
+  <tile id="1373" type="terrain"/>
+  <tile id="1374" type="terrain"/>
+  <tile id="1375" type="terrain"/>
+  <tile id="1376" type="terrain"/>
+  <tile id="1377" type="terrain"/>
+  <tile id="1378" type="terrain"/>
+  <tile id="1379" type="terrain"/>
+  <tile id="1380" type="terrain"/>
+  <tile id="1381" type="terrain"/>
+  <tile id="1382" type="terrain"/>
+  <tile id="1383" type="terrain"/>
+  <tile id="1384" type="terrain"/>
+  <tile id="1385" type="terrain"/>
+  <tile id="1386" type="terrain"/>
+  <tile id="1387" type="terrain"/>
+  <tile id="1496" type="terrain"/>
+  <tile id="1497" type="terrain"/>
+  <tile id="1498" type="terrain"/>
+  <tile id="1499" type="terrain"/>
+  <tile id="1500" type="terrain"/>
+  <tile id="1501" type="terrain"/>
+  <tile id="1502" type="terrain"/>
+  <tile id="1503" type="terrain"/>
+  <tile id="1504" type="terrain"/>
+  <tile id="1505" type="terrain"/>
+  <tile id="1506" type="terrain"/>
+  <tile id="1507" type="terrain"/>
+  <tile id="1508" type="terrain"/>
+  <tile id="1509" type="terrain"/>
+  <tile id="1510" type="terrain"/>
+  <tile id="1511" type="terrain"/>
+  <tile id="1512" type="terrain"/>
+  <tile id="1513" type="terrain"/>
+  <tile id="1514" type="terrain"/>
+  <tile id="1515" type="terrain"/>
+  <tile id="1624" type="terrain"/>
+  <tile id="1625" type="terrain"/>
+  <tile id="1626" type="terrain"/>
+  <tile id="1627" type="terrain"/>
+  <tile id="1628" type="terrain"/>
+  <tile id="1629" type="terrain"/>
+  <tile id="1630" type="terrain"/>
+  <tile id="1631" type="terrain"/>
+  <tile id="1632" type="terrain"/>
+  <tile id="1633" type="terrain"/>
+  <tile id="1634" type="terrain"/>
+  <tile id="1635" type="terrain"/>
+  <tile id="1636" type="terrain"/>
+  <tile id="1637" type="terrain"/>
+  <tile id="1638" type="terrain"/>
+  <tile id="1639" type="terrain"/>
+  <tile id="1640" type="terrain"/>
+  <tile id="1641" type="terrain"/>
+  <tile id="1642" type="terrain"/>
+  <tile id="1643" type="terrain"/>
+  <tile id="1752" type="terrain"/>
+  <tile id="1753" type="terrain"/>
+  <tile id="1754" type="terrain"/>
+  <tile id="1755" type="terrain"/>
+  <tile id="1756" type="terrain"/>
+  <tile id="1757" type="terrain"/>
+  <tile id="1758" type="terrain"/>
+  <tile id="1759" type="terrain"/>
+  <tile id="1760" type="terrain"/>
+  <tile id="1761" type="terrain"/>
+  <tile id="1762" type="terrain"/>
+  <tile id="1763" type="terrain"/>
+  <tile id="1764" type="terrain"/>
+  <tile id="1765" type="terrain"/>
+  <tile id="1766" type="terrain"/>
+  <tile id="1767" type="terrain"/>
+  <tile id="1768" type="terrain"/>
+  <tile id="1769" type="terrain"/>
+  <tile id="1770" type="terrain"/>
+  <tile id="1771" type="terrain"/>
+  <tile id="1880" type="terrain"/>
+  <tile id="1881" type="terrain"/>
+  <tile id="1882" type="terrain"/>
+  <tile id="1883" type="terrain"/>
+  <tile id="1884" type="terrain"/>
+  <tile id="1885" type="terrain"/>
+  <tile id="1886" type="terrain"/>
+  <tile id="1887" type="terrain"/>
+  <tile id="1888" type="terrain"/>
+  <tile id="1889" type="terrain"/>
+  <tile id="1890" type="terrain"/>
+  <tile id="1891" type="terrain"/>
+  <tile id="1892" type="terrain"/>
+  <tile id="1893" type="terrain"/>
+  <tile id="1894" type="terrain"/>
+  <tile id="1895" type="terrain"/>
+  <tile id="1896" type="terrain"/>
+  <tile id="1897" type="terrain"/>
+  <tile id="1898" type="terrain"/>
+  <tile id="1899" type="terrain"/>
+  <tile id="2008" type="terrain"/>
+  <tile id="2009" type="terrain"/>
+  <tile id="2010" type="terrain"/>
+  <tile id="2011" type="terrain"/>
+  <tile id="2012" type="terrain"/>
+  <tile id="2013" type="terrain"/>
+  <tile id="2014" type="terrain"/>
+  <tile id="2015" type="terrain"/>
+  <tile id="2016" type="terrain"/>
+  <tile id="2017" type="terrain"/>
+  <tile id="2018" type="terrain"/>
+  <tile id="2019" type="terrain"/>
+  <tile id="2020" type="terrain"/>
+  <tile id="2021" type="terrain"/>
+  <tile id="2022" type="terrain"/>
+  <tile id="2023" type="terrain"/>
+  <tile id="2024" type="terrain"/>
+  <tile id="2025" type="terrain"/>
+  <tile id="2026" type="terrain"/>
+  <tile id="2027" type="terrain"/>
+  <tile id="2136" type="terrain"/>
+  <tile id="2137" type="terrain"/>
+  <tile id="2138" type="terrain"/>
+  <tile id="2139" type="terrain"/>
+  <tile id="2140" type="terrain"/>
+  <tile id="2141" type="terrain"/>
+  <tile id="2142" type="terrain"/>
+  <tile id="2143" type="terrain"/>
+  <tile id="2144" type="terrain"/>
+  <tile id="2145" type="terrain"/>
+  <tile id="2146" type="terrain"/>
+  <tile id="2147" type="terrain"/>
+  <tile id="2148" type="terrain"/>
+  <tile id="2149" type="terrain"/>
+  <tile id="2150" type="terrain"/>
+  <tile id="2151" type="terrain"/>
+  <tile id="2264" type="terrain"/>
+  <tile id="2265" type="terrain"/>
+  <tile id="2266" type="terrain"/>
+  <tile id="2267" type="terrain"/>
+  <tile id="2268" type="terrain"/>
+  <tile id="2269" type="terrain"/>
+  <tile id="2270" type="terrain"/>
+  <tile id="2271" type="terrain"/>
+  <tile id="2272" type="terrain"/>
+  <tile id="2273" type="terrain"/>
+  <tile id="2274" type="terrain"/>
+  <tile id="2275" type="terrain"/>
+  <tile id="2276" type="terrain"/>
+  <tile id="2277" type="terrain"/>
+  <tile id="2278" type="terrain"/>
+  <tile id="2279" type="terrain"/>
+  <tile id="2392" type="terrain"/>
+  <tile id="2393" type="terrain"/>
+  <tile id="2394" type="terrain"/>
+  <tile id="2395" type="terrain"/>
+  <tile id="2396" type="terrain"/>
+  <tile id="2397" type="terrain"/>
+  <tile id="2398" type="terrain"/>
+  <tile id="2399" type="terrain"/>
+  <tile id="2400" type="terrain"/>
+  <tile id="2401" type="terrain"/>
+  <tile id="2402" type="terrain"/>
+  <tile id="2403" type="terrain"/>
+  <tile id="2404" type="terrain"/>
+  <tile id="2405" type="terrain"/>
+  <tile id="2406" type="terrain"/>
+  <tile id="2407" type="terrain"/>
+  <tile id="2520" type="terrain"/>
+  <tile id="2521" type="terrain"/>
+  <tile id="2522" type="terrain"/>
+  <tile id="2523" type="terrain"/>
+  <tile id="2524" type="terrain"/>
+  <tile id="2525" type="terrain"/>
+  <tile id="2526" type="terrain"/>
+  <tile id="2527" type="terrain"/>
+  <tile id="2528" type="terrain"/>
+  <tile id="2529" type="terrain"/>
+  <tile id="2530" type="terrain"/>
+  <tile id="2531" type="terrain"/>
+  <tile id="2532" type="terrain"/>
+  <tile id="2533" type="terrain"/>
+  <tile id="2534" type="terrain"/>
+  <tile id="2535" type="terrain"/>
+  <tile id="2647" type="terrain"/>
+  <tile id="2648" type="terrain"/>
+  <tile id="2649" type="terrain"/>
+  <tile id="2650" type="terrain"/>
+  <tile id="2651" type="terrain"/>
+  <tile id="2652" type="terrain"/>
+  <tile id="2653" type="terrain"/>
+  <tile id="2654" type="terrain"/>
+  <tile id="2655" type="terrain"/>
+  <tile id="2656" type="terrain"/>
+  <tile id="2657" type="terrain"/>
+  <tile id="2658" type="terrain"/>
+  <tile id="2659" type="terrain"/>
+  <tile id="2660" type="terrain"/>
+  <tile id="2661" type="terrain"/>
+  <tile id="2662" type="terrain"/>
+  <tile id="2663" type="terrain"/>
+  <tile id="2664" type="terrain"/>
+  <tile id="2665" type="terrain"/>
+  <tile id="2666" type="terrain"/>
+  <tile id="2667" type="terrain"/>
+  <tile id="2668" type="terrain"/>
+  <tile id="2669" type="terrain"/>
+  <tile id="2670" type="terrain"/>
+  <tile id="2671" type="terrain"/>
+  <tile id="2672" type="terrain"/>
+  <tile id="2775" type="terrain"/>
+  <tile id="2776" type="terrain"/>
+  <tile id="2777" type="terrain"/>
+  <tile id="2778" type="terrain"/>
+  <tile id="2779" type="terrain"/>
+  <tile id="2780" type="terrain"/>
+  <tile id="2781" type="terrain"/>
+  <tile id="2782" type="terrain"/>
+  <tile id="2783" type="terrain"/>
+  <tile id="2784" type="terrain"/>
+  <tile id="2785" type="terrain"/>
+  <tile id="2786" type="terrain"/>
+  <tile id="2787" type="terrain"/>
+  <tile id="2788" type="terrain"/>
+  <tile id="2789" type="terrain"/>
+  <tile id="2790" type="terrain"/>
+  <tile id="2791" type="terrain"/>
+  <tile id="2792" type="terrain"/>
+  <tile id="2793" type="terrain"/>
+  <tile id="2794" type="terrain"/>
+  <tile id="2795" type="terrain"/>
+  <tile id="2796" type="terrain"/>
+  <tile id="2797" type="terrain"/>
+  <tile id="2798" type="terrain"/>
+  <tile id="2799" type="terrain"/>
+  <tile id="2800" type="terrain"/>
+  <tile id="2904" type="terrain"/>
+  <tile id="2905" type="terrain"/>
+  <tile id="2906" type="terrain"/>
+  <tile id="2907" type="terrain"/>
+  <tile id="2908" type="terrain"/>
+  <tile id="2909" type="terrain"/>
+  <tile id="2910" type="terrain"/>
+  <tile id="2911" type="terrain"/>
+  <tile id="2912" type="terrain"/>
+  <tile id="2913" type="terrain"/>
+  <tile id="2914" type="terrain"/>
+  <tile id="2915" type="terrain"/>
+  <tile id="2916" type="terrain"/>
+  <tile id="2917" type="terrain"/>
+  <tile id="2918" type="terrain"/>
+  <tile id="2919" type="terrain"/>
+  <tile id="2920" type="terrain"/>
+  <tile id="2921" type="terrain"/>
+  <tile id="2922" type="terrain"/>
+  <tile id="2923" type="terrain"/>
+  <tile id="2924" type="terrain"/>
+  <tile id="2925" type="terrain"/>
+  <tile id="2926" type="terrain"/>
+  <tile id="2927" type="terrain"/>
+  <tile id="3032" type="terrain"/>
+  <tile id="3033" type="terrain"/>
+  <tile id="3034" type="terrain"/>
+  <tile id="3035" type="terrain"/>
+  <tile id="3036" type="terrain"/>
+  <tile id="3037" type="terrain"/>
+  <tile id="3038" type="terrain"/>
+  <tile id="3039" type="terrain"/>
+  <tile id="3040" type="terrain"/>
+  <tile id="3041" type="terrain"/>
+  <tile id="3042" type="terrain"/>
+  <tile id="3043" type="terrain"/>
+  <tile id="3044" type="terrain"/>
+  <tile id="3045" type="terrain"/>
+  <tile id="3046" type="terrain"/>
+  <tile id="3047" type="terrain"/>
+  <tile id="3048" type="terrain"/>
+  <tile id="3049" type="terrain"/>
+  <tile id="3050" type="terrain"/>
+  <tile id="3051" type="terrain"/>
+  <tile id="3052" type="terrain"/>
+  <tile id="3053" type="terrain"/>
+  <tile id="3054" type="terrain"/>
+  <tile id="3055" type="terrain"/>
+  <tile id="3160" type="terrain"/>
+  <tile id="3161" type="terrain"/>
+  <tile id="3162" type="terrain"/>
+  <tile id="3163" type="terrain"/>
+  <tile id="3164" type="terrain"/>
+  <tile id="3165" type="terrain"/>
+  <tile id="3166" type="terrain"/>
+  <tile id="3167" type="terrain"/>
+  <tile id="3168" type="terrain"/>
+  <tile id="3169" type="terrain"/>
+  <tile id="3170" type="terrain"/>
+  <tile id="3171" type="terrain"/>
+  <tile id="3172" type="terrain"/>
+  <tile id="3173" type="terrain"/>
+  <tile id="3174" type="terrain"/>
+  <tile id="3175" type="terrain"/>
+  <tile id="3176" type="terrain"/>
+  <tile id="3177" type="terrain"/>
+  <tile id="3178" type="terrain"/>
+  <tile id="3179" type="terrain"/>
+  <tile id="3288" type="terrain"/>
+  <tile id="3289" type="terrain"/>
+  <tile id="3290" type="terrain"/>
+  <tile id="3291" type="terrain"/>
+  <tile id="3292" type="terrain"/>
+  <tile id="3293" type="terrain"/>
+  <tile id="3294" type="terrain"/>
+  <tile id="3295" type="terrain"/>
+  <tile id="3296" type="terrain"/>
+  <tile id="3297" type="terrain"/>
+  <tile id="3298" type="terrain"/>
+  <tile id="3299" type="terrain"/>
+  <tile id="3300" type="terrain"/>
+  <tile id="3301" type="terrain"/>
+  <tile id="3302" type="terrain"/>
+  <tile id="3303" type="terrain"/>
+  <tile id="3304" type="terrain"/>
+  <tile id="3305" type="terrain"/>
+  <tile id="3306" type="terrain"/>
+  <tile id="3307" type="terrain"/>
+  <tile id="3416" type="terrain"/>
+  <tile id="3417" type="terrain"/>
+  <tile id="3418" type="terrain"/>
+  <tile id="3419" type="terrain"/>
+  <tile id="3420" type="terrain"/>
+  <tile id="3421" type="terrain"/>
+  <tile id="3422" type="terrain"/>
+  <tile id="3423" type="terrain"/>
+  <tile id="3424" type="terrain"/>
+  <tile id="3425" type="terrain"/>
+  <tile id="3426" type="terrain"/>
+  <tile id="3427" type="terrain"/>
+  <tile id="3428" type="terrain"/>
+  <tile id="3429" type="terrain"/>
+  <tile id="3430" type="terrain"/>
+  <tile id="3431" type="terrain"/>
+  <tile id="3432" type="terrain"/>
+  <tile id="3433" type="terrain"/>
+  <tile id="3434" type="terrain"/>
+  <tile id="3435" type="terrain"/>
+  <tile id="3544" type="terrain"/>
+  <tile id="3545" type="terrain"/>
+  <tile id="3546" type="terrain"/>
+  <tile id="3547" type="terrain"/>
+  <tile id="3548" type="terrain"/>
+  <tile id="3549" type="terrain"/>
+  <tile id="3550" type="terrain"/>
+  <tile id="3551" type="terrain"/>
+  <tile id="3552" type="terrain"/>
+  <tile id="3553" type="terrain"/>
+  <tile id="3554" type="terrain"/>
+  <tile id="3555" type="terrain"/>
+  <tile id="3556" type="terrain"/>
+  <tile id="3557" type="terrain"/>
+  <tile id="3558" type="terrain"/>
+  <tile id="3559" type="terrain"/>
+  <tile id="3560" type="terrain"/>
+  <tile id="3561" type="terrain"/>
+  <tile id="3562" type="terrain"/>
+  <tile id="3563" type="terrain"/>
+  <tile id="3672" type="terrain"/>
+  <tile id="3673" type="terrain"/>
+  <tile id="3674" type="terrain"/>
+  <tile id="3675" type="terrain"/>
+  <tile id="3676" type="terrain"/>
+  <tile id="3677" type="terrain"/>
+  <tile id="3678" type="terrain"/>
+  <tile id="3679" type="terrain"/>
+  <tile id="3680" type="terrain"/>
+  <tile id="3681" type="terrain"/>
+  <tile id="3682" type="terrain"/>
+  <tile id="3683" type="terrain"/>
+  <tile id="3684" type="terrain"/>
+  <tile id="3685" type="terrain"/>
+  <tile id="3686" type="terrain"/>
+  <tile id="3687" type="terrain"/>
+  <tile id="3688" type="terrain"/>
+  <tile id="3689" type="terrain"/>
+  <tile id="3690" type="terrain"/>
+  <tile id="3691" type="terrain"/>
+  <tile id="3800" type="terrain"/>
+  <tile id="3801" type="terrain"/>
+  <tile id="3802" type="terrain"/>
+  <tile id="3803" type="terrain"/>
+  <tile id="3804" type="terrain"/>
+  <tile id="3805" type="terrain"/>
+  <tile id="3806" type="terrain"/>
+  <tile id="3807" type="terrain"/>
+  <tile id="3808" type="terrain"/>
+  <tile id="3809" type="terrain"/>
+  <tile id="3810" type="terrain"/>
+  <tile id="3811" type="terrain"/>
+  <tile id="3812" type="terrain"/>
+  <tile id="3813" type="terrain"/>
+  <tile id="3814" type="terrain"/>
+  <tile id="3815" type="terrain"/>
+  <tile id="3816" type="terrain"/>
+  <tile id="3817" type="terrain"/>
+  <tile id="3818" type="terrain"/>
+  <tile id="3819" type="terrain"/>
+  <tile id="3928" type="terrain"/>
+  <tile id="3929" type="terrain"/>
+  <tile id="3930" type="terrain"/>
+  <tile id="3931" type="terrain"/>
+  <tile id="3932" type="terrain"/>
+  <tile id="3933" type="terrain"/>
+  <tile id="3934" type="terrain"/>
+  <tile id="3935" type="terrain"/>
+  <tile id="3936" type="terrain"/>
+  <tile id="3937" type="terrain"/>
+  <tile id="3938" type="terrain"/>
+  <tile id="3939" type="terrain"/>
+  <tile id="3940" type="terrain"/>
+  <tile id="3941" type="terrain"/>
+  <tile id="3942" type="terrain"/>
+  <tile id="3943" type="terrain"/>
+  <tile id="3944" type="terrain"/>
+  <tile id="3945" type="terrain"/>
+  <tile id="3946" type="terrain"/>
+  <tile id="3947" type="terrain"/>
+  <tile id="4056" type="terrain"/>
+  <tile id="4057" type="terrain"/>
+  <tile id="4058" type="terrain"/>
+  <tile id="4059" type="terrain"/>
+  <tile id="4060" type="terrain"/>
+  <tile id="4061" type="terrain"/>
+  <tile id="4062" type="terrain"/>
+  <tile id="4063" type="terrain"/>
+  <tile id="4064" type="terrain"/>
+  <tile id="4065" type="terrain"/>
+  <tile id="4066" type="terrain"/>
+  <tile id="4067" type="terrain"/>
+  <tile id="4068" type="terrain"/>
+  <tile id="4069" type="terrain"/>
+  <tile id="4070" type="terrain"/>
+  <tile id="4071" type="terrain"/>
+  <tile id="4072" type="terrain"/>
+  <tile id="4073" type="terrain"/>
+  <tile id="4074" type="terrain"/>
+  <tile id="4075" type="terrain"/>
+  <tile id="4184" type="terrain"/>
+  <tile id="4185" type="terrain"/>
+  <tile id="4186" type="terrain"/>
+  <tile id="4187" type="terrain"/>
+  <tile id="4188" type="terrain"/>
+  <tile id="4189" type="terrain"/>
+  <tile id="4190" type="terrain"/>
+  <tile id="4191" type="terrain"/>
+  <tile id="4192" type="terrain"/>
+  <tile id="4193" type="terrain"/>
+  <tile id="4194" type="terrain"/>
+  <tile id="4195" type="terrain"/>
+  <tile id="4196" type="terrain"/>
+  <tile id="4197" type="terrain"/>
+  <tile id="4198" type="terrain"/>
+  <tile id="4199" type="terrain"/>
+  <tile id="4312" type="terrain"/>
+  <tile id="4313" type="terrain"/>
+  <tile id="4314" type="terrain"/>
+  <tile id="4315" type="terrain"/>
+  <tile id="4316" type="terrain"/>
+  <tile id="4317" type="terrain"/>
+  <tile id="4318" type="terrain"/>
+  <tile id="4319" type="terrain"/>
+  <tile id="4320" type="terrain"/>
+  <tile id="4321" type="terrain"/>
+  <tile id="4322" type="terrain"/>
+  <tile id="4323" type="terrain"/>
+  <tile id="4324" type="terrain"/>
+  <tile id="4325" type="terrain"/>
+  <tile id="4326" type="terrain"/>
+  <tile id="4327" type="terrain"/>
+  <tile id="4440" type="terrain"/>
+  <tile id="4441" type="terrain"/>
+  <tile id="4442" type="terrain"/>
+  <tile id="4443" type="terrain"/>
+  <tile id="4444" type="terrain"/>
+  <tile id="4445" type="terrain"/>
+  <tile id="4446" type="terrain"/>
+  <tile id="4447" type="terrain"/>
+  <tile id="4448" type="terrain"/>
+  <tile id="4449" type="terrain"/>
+  <tile id="4450" type="terrain"/>
+  <tile id="4451" type="terrain"/>
+  <tile id="4452" type="terrain"/>
+  <tile id="4453" type="terrain"/>
+  <tile id="4454" type="terrain"/>
+  <tile id="4455" type="terrain"/>
+  <tile id="4568" type="terrain"/>
+  <tile id="4569" type="terrain"/>
+  <tile id="4570" type="terrain"/>
+  <tile id="4571" type="terrain"/>
+  <tile id="4572" type="terrain"/>
+  <tile id="4573" type="terrain"/>
+  <tile id="4574" type="terrain"/>
+  <tile id="4575" type="terrain"/>
+  <tile id="4576" type="terrain"/>
+  <tile id="4577" type="terrain"/>
+  <tile id="4578" type="terrain"/>
+  <tile id="4579" type="terrain"/>
+  <tile id="4580" type="terrain"/>
+  <tile id="4581" type="terrain"/>
+  <tile id="4582" type="terrain"/>
+  <tile id="4583" type="terrain"/>
+  <tile id="7269" type="tree"/>
+  <tile id="7270" type="tree"/>
+  <tile id="7271" type="tree"/>
+  <tile id="7272" type="tree"/>
+  <tile id="7273" type="tree"/>
+  <tile id="7274" type="tree"/>
+  <tile id="7275" type="tree"/>
+  <tile id="7276" type="tree"/>
+  <tile id="7277" type="tree"/>
+  <tile id="7278" type="tree"/>
+  <tile id="7279" type="tree"/>
+  <tile id="7396" type="tree"/>
+  <tile id="7397" type="tree"/>
+  <tile id="7398" type="tree"/>
+  <tile id="7399" type="tree"/>
+  <tile id="7400" type="tree"/>
+  <tile id="7401" type="tree"/>
+  <tile id="7402" type="tree"/>
+  <tile id="7403" type="tree"/>
+  <tile id="7404" type="tree"/>
+  <tile id="7405" type="tree"/>
+  <tile id="7406" type="tree"/>
+  <tile id="7407" type="tree"/>
+  <tile id="7524" type="tree"/>
+  <tile id="7525" type="tree"/>
+  <tile id="7526" type="tree"/>
+  <tile id="7527" type="tree"/>
+  <tile id="7528" type="tree"/>
+  <tile id="7529" type="tree"/>
+  <tile id="7530" type="tree"/>
+  <tile id="7531" type="tree"/>
+  <tile id="7532" type="tree"/>
+  <tile id="7533" type="tree"/>
+  <tile id="7534" type="tree"/>
+  <tile id="7535" type="tree"/>
+  <tile id="7652" type="tree"/>
+  <tile id="7653" type="tree"/>
+  <tile id="7654" type="tree"/>
+  <tile id="7655" type="tree"/>
+  <tile id="7656" type="tree"/>
+  <tile id="7657" type="tree"/>
+  <tile id="7658" type="tree"/>
+  <tile id="7659" type="tree"/>
+  <tile id="7660" type="tree"/>
+  <tile id="7661" type="tree"/>
+  <tile id="7662" type="tree"/>
+  <tile id="7663" type="tree"/>
+  <tile id="7773" type="tree"/>
+  <tile id="7774" type="tree"/>
+  <tile id="7775" type="tree"/>
+  <tile id="7776" type="tree"/>
+  <tile id="7777" type="tree"/>
+  <tile id="7778" type="tree"/>
+  <tile id="7780" type="tree"/>
+  <tile id="7781" type="tree"/>
+  <tile id="7782" type="tree"/>
+  <tile id="7783" type="tree"/>
+  <tile id="7784" type="tree"/>
+  <tile id="7785" type="tree"/>
+  <tile id="7786" type="tree"/>
+  <tile id="7787" type="tree"/>
+  <tile id="7788" type="tree"/>
+  <tile id="7789" type="tree"/>
+  <tile id="7790" type="tree"/>
+  <tile id="7791" type="tree"/>
+  <tile id="7900" type="tree"/>
+  <tile id="7901" type="tree"/>
+  <tile id="7902" type="tree"/>
+  <tile id="7903" type="tree"/>
+  <tile id="7904" type="tree"/>
+  <tile id="7905" type="tree"/>
+  <tile id="7906" type="tree"/>
+  <tile id="7907" type="tree"/>
+  <tile id="7908" type="tree"/>
+  <tile id="7909" type="tree"/>
+  <tile id="7910" type="tree"/>
+  <tile id="7911" type="tree"/>
+  <tile id="7912" type="tree"/>
+  <tile id="7913" type="tree"/>
+  <tile id="7914" type="tree"/>
+  <tile id="7915" type="tree"/>
+  <tile id="7916" type="tree"/>
+  <tile id="7917" type="tree"/>
+  <tile id="7918" type="tree"/>
+  <tile id="7919" type="tree"/>
+  <tile id="8028" type="tree"/>
+  <tile id="8029" type="tree"/>
+  <tile id="8030" type="tree"/>
+  <tile id="8031" type="tree"/>
+  <tile id="8032" type="tree"/>
+  <tile id="8033" type="tree"/>
+  <tile id="8034" type="tree"/>
+  <tile id="8035" type="tree"/>
+  <tile id="8036" type="tree"/>
+  <tile id="8037" type="tree"/>
+  <tile id="8038" type="tree"/>
+  <tile id="8039" type="tree"/>
+  <tile id="8040" type="tree"/>
+  <tile id="8041" type="tree"/>
+  <tile id="8042" type="tree"/>
+  <tile id="8043" type="tree"/>
+  <tile id="8044" type="tree"/>
+  <tile id="8045" type="tree"/>
+  <tile id="8046" type="tree"/>
+  <tile id="8047" type="tree"/>
+  <tile id="8156" type="tree"/>
+  <tile id="8157" type="tree"/>
+  <tile id="8158" type="tree"/>
+  <tile id="8159" type="tree"/>
+  <tile id="8160" type="tree"/>
+  <tile id="8161" type="tree"/>
+  <tile id="8162" type="tree"/>
+  <tile id="8163" type="tree"/>
+  <tile id="8166" type="tree"/>
+  <tile id="8167" type="tree"/>
+  <tile id="8168" type="tree"/>
+  <tile id="8169" type="tree"/>
+  <tile id="8170" type="tree"/>
+  <tile id="8171" type="tree"/>
+  <tile id="8172" type="tree"/>
+  <tile id="8173" type="tree"/>
+  <tile id="8280" type="vegetation"/>
+  <tile id="8281" type="vegetation"/>
+  <tile id="8282" type="vegetation"/>
+  <tile id="8283" type="vegetation"/>
+  <tile id="8284" type="tree"/>
+  <tile id="8285" type="tree"/>
+  <tile id="8286" type="tree"/>
+  <tile id="8287" type="tree"/>
+  <tile id="8288" type="tree"/>
+  <tile id="8289" type="tree"/>
+  <tile id="8290" type="tree"/>
+  <tile id="8291" type="tree"/>
+  <tile id="8296" type="tree"/>
+  <tile id="8297" type="tree"/>
+  <tile id="8298" type="tree"/>
+  <tile id="8299" type="tree"/>
+  <tile id="8408" type="vegetation"/>
+  <tile id="8409" type="vegetation"/>
+  <tile id="8410" type="vegetation"/>
+  <tile id="8411" type="vegetation"/>
+  <tile id="8413" type="tree"/>
+  <tile id="8414" type="tree"/>
+  <tile id="8415" type="tree"/>
+  <tile id="8416" type="tree"/>
+  <tile id="8417" type="tree"/>
+  <tile id="8418" type="tree"/>
+  <tile id="8424" type="tree"/>
+  <tile id="8425" type="tree"/>
+  <tile id="8426" type="tree"/>
+  <tile id="8427" type="tree"/>
+  <tile id="8532" type="vegetation"/>
+  <tile id="8533" type="vegetation"/>
+  <tile id="8534" type="vegetation"/>
+  <tile id="8535" type="vegetation"/>
+  <tile id="8536" type="vegetation"/>
+  <tile id="8537" type="vegetation"/>
+  <tile id="8538" type="vegetation"/>
+  <tile id="8539" type="vegetation"/>
+  <tile id="8542" type="tree"/>
+  <tile id="8543" type="tree"/>
+  <tile id="8544" type="tree"/>
+  <tile id="8545" type="tree"/>
+  <tile id="8551" type="tree"/>
+  <tile id="8552" type="tree"/>
+  <tile id="8553" type="tree"/>
+  <tile id="8554" type="tree"/>
+  <tile id="8555" type="tree"/>
+  <tile id="8556" type="tree"/>
+  <tile id="8660" type="vegetation"/>
+  <tile id="8661" type="vegetation"/>
+  <tile id="8662" type="vegetation"/>
+  <tile id="8663" type="vegetation"/>
+  <tile id="8664" type="vegetation"/>
+  <tile id="8665" type="vegetation"/>
+  <tile id="8666" type="vegetation"/>
+  <tile id="8667" type="vegetation"/>
+  <tile id="8670" type="tree"/>
+  <tile id="8671" type="tree"/>
+  <tile id="8672" type="tree"/>
+  <tile id="8673" type="tree"/>
+  <tile id="8678" type="tree"/>
+  <tile id="8679" type="tree"/>
+  <tile id="8680" type="tree"/>
+  <tile id="8681" type="tree"/>
+  <tile id="8682" type="tree"/>
+  <tile id="8683" type="tree"/>
+  <tile id="8684" type="tree"/>
+  <tile id="8685" type="tree"/>
+  <tile id="8789" type="flower"/>
+  <tile id="8790" type="flower"/>
+  <tile id="8796" type="mushroom"/>
+  <tile id="8797" type="mushroom"/>
+  <tile id="8798" type="mushroom"/>
+  <tile id="8799" type="mushroom"/>
+  <tile id="8917" type="flower"/>
+  <tile id="8918" type="flower"/>
+  <tile id="8924" type="mushroom"/>
+  <tile id="8925" type="mushroom"/>
+  <tile id="8926" type="mushroom"/>
+  <tile id="8927" type="mushroom"/>
+  <tile id="9044" type="flower"/>
+  <tile id="9045" type="flower"/>
+  <tile id="9046" type="flower"/>
+  <tile id="9047" type="flower"/>
+  <tile id="9049" type="mushroom"/>
+  <tile id="9050" type="mushroom"/>
+  <tile id="9053" type="mushroom"/>
+  <tile id="9054" type="mushroom"/>
+  <tile id="9173" type="flower"/>
+  <tile id="9174" type="flower"/>
+  <tile id="9177" type="mushroom"/>
+  <tile id="9178" type="mushroom"/>
+  <tile id="9181" type="mushroom"/>
+  <tile id="9182" type="mushroom"/>
+  <wangsets>
+   <wangset name="DarkBrown" type="corner" tile="-1"/>
+   <wangset name="BrownTerrain" type="mixed" tile="-1"/>
+  </wangsets>
+ </tileset>
+ <tileset firstgid="22081" name="slime" tilewidth="16" tileheight="16" tilecount="48" columns="12">
+  <image source="images/slime.png" width="192" height="64"/>
+  <tile id="0" type="slime"/>
+  <tile id="1" type="slime"/>
+  <tile id="2" type="slime"/>
+  <tile id="3" type="slime"/>
+  <tile id="4" type="slime"/>
+  <tile id="5" type="slime"/>
+  <tile id="6" type="slime"/>
+  <tile id="7" type="slime"/>
+  <tile id="8" type="slime"/>
+  <tile id="9" type="slime"/>
+  <tile id="10" type="slime"/>
+  <tile id="11" type="slime"/>
+  <tile id="12" type="slime"/>
+  <tile id="13" type="slime"/>
+  <tile id="14" type="slime"/>
+  <tile id="15" type="slime"/>
+  <tile id="16" type="slime"/>
+  <tile id="17" type="slime"/>
+  <tile id="18" type="slime"/>
+  <tile id="19" type="slime"/>
+  <tile id="20" type="slime"/>
+  <tile id="21" type="slime"/>
+  <tile id="22" type="slime"/>
+  <tile id="23" type="slime"/>
+  <tile id="24" type="slime"/>
+  <tile id="25" type="slime"/>
+  <tile id="26" type="slime"/>
+  <tile id="27" type="slime"/>
+  <tile id="28" type="slime"/>
+  <tile id="29" type="slime"/>
+  <tile id="30" type="slime"/>
+  <tile id="31" type="slime"/>
+  <tile id="32" type="slime"/>
+  <tile id="33" type="slime"/>
+  <tile id="34" type="slime"/>
+  <tile id="35" type="slime"/>
+  <tile id="36" type="slime"/>
+  <tile id="37" type="slime"/>
+  <tile id="38" type="slime"/>
+  <tile id="39" type="slime"/>
+  <tile id="40" type="slime"/>
+  <tile id="41" type="slime"/>
+  <tile id="42" type="slime"/>
+  <tile id="43" type="slime"/>
+  <tile id="44" type="slime"/>
+  <tile id="45" type="slime"/>
+  <tile id="46" type="slime"/>
+  <tile id="47" type="slime"/>
+ </tileset>
+ <tileset firstgid="22129" name="portal_ver2" tilewidth="16" tileheight="16" tilecount="28" columns="4">
+  <image source="images/portal.png" width="64" height="124"/>
+  <tile id="1" type="portal"/>
+  <tile id="2" type="portal"/>
+  <tile id="3" type="portal"/>
+  <tile id="4" type="portal"/>
+  <tile id="5" type="portal"/>
+  <tile id="6" type="portal"/>
+  <tile id="7" type="portal"/>
+  <tile id="8" type="portal"/>
+  <tile id="9" type="portal"/>
+  <tile id="10" type="portal"/>
+  <tile id="11" type="portal"/>
+  <tile id="12" type="portal"/>
+  <tile id="13" type="portal"/>
+  <tile id="14" type="portal"/>
+  <tile id="15" type="portal"/>
+  <tile id="16" type="portal"/>
+  <tile id="17" type="portal"/>
+  <tile id="18" type="portal"/>
+  <tile id="19" type="portal"/>
+  <tile id="20" type="portal"/>
+  <tile id="21" type="portal"/>
+  <tile id="22" type="portal"/>
+  <tile id="23" type="portal"/>
+  <tile id="25" type="portal"/>
+  <tile id="26" type="portal"/>
+  <tile id="27" type="portal"/>
+ </tileset>
  <layer id="2" name="Sky" width="80" height="45" visible="0">
   <data encoding="csv">
 718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,726,718,719,720,721,722,723,724,725,
@@ -162,12 +1120,12 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,10905,10906,10907,10905,10906,10907,10908,10417,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,11933,11934,10396,10397,10398,10399,12461,12462,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10520,11033,11034,11035,11033,11034,11035,11036,10545,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10520,12061,12590,10524,10525,10526,10527,10528,12590,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,10905,10906,11161,11162,11163,11162,11162,11163,11164,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10648,10649,10650,10785,10786,10787,10788,10789,10790,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10520,11033,11034,11290,11290,11291,11290,11290,11291,11292,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,11933,11934,10396,10397,10398,10399,10399,10414,10908,12322,12322,12323,12324,12325,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11933,11934,10396,10397,10398,10399,10400,10401,10402,10403,10399,10400,10401,10402,10403,10404,10405,10406,10407,10408,10409,10410,10411,10412,10413,10414,10415,10416,10417,0,0,0,0,0,0,0,0,10520,12061,12190,10524,10525,10526,10527,10527,10528,12064,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12061,12190,10524,10525,10526,10527,10528,10529,10530,10531,10527,10528,10529,10530,10531,10532,10533,10534,10535,10536,10537,10538,10539,10540,10541,10542,10543,10544,10545,0,0,0,0,0,0,0,0,10648,12317,12318,12322,12323,12324,12325,12326,11818,11820,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,10905,10906,10907,10905,10906,10907,10908,10417,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,11933,11934,10396,10397,10398,10399,12461,10414,10415,10416,10417,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10520,11033,11034,11035,11033,11034,11035,11036,10545,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10520,12061,12590,10524,10525,10526,10527,10528,10542,10543,10544,10545,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,10905,10906,11161,11162,11163,11162,11162,11163,11164,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10648,10649,10650,10785,10786,10787,10788,10789,10670,10671,10672,10673,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10520,11033,11034,11290,11290,11291,11290,11290,11291,11292,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,11933,11934,10396,10397,10398,10399,10399,10414,10908,12322,12322,12323,12324,10798,10799,10800,10801,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11933,11934,10396,10397,10398,10399,10400,10401,10402,10403,10399,10400,10401,10402,10403,10404,10405,10406,10407,10408,10409,10410,10411,10412,10413,10414,10415,10416,10417,0,0,0,0,0,10520,12061,12190,10524,10525,10526,10527,10527,10528,12064,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12061,12190,10524,10525,10526,10527,10528,10529,10530,10531,10527,10528,10529,10530,10531,10532,10533,10534,10535,10536,10537,10538,10539,10540,10541,10542,10543,10544,10545,0,0,0,0,0,10648,12317,12318,12322,12323,12324,12325,12326,11818,11820,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12317,12318,12322,12323,12324,12325,12326,12327,10778,10779,10780,10781,10786,10787,10788,10789,10790,10791,11306,10796,10797,11806,11807,11808,11817,11818,11819,10800,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13981,13982,13983,13984,13984,11937,11298,11299,11300,11301,11302,11430,11434,10924,11933,11934,11935,11936,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10392,10393,10395,10395,10395,10395,10416,10417,0,0,0,0,0,0,0,0,0,0,0,14109,14110,14111,14112,14112,12065,11938,11427,11428,11429,11430,11558,11562,11052,12061,12062,12063,12064,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -249,7 +1207,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="7" name="Trial" width="80" height="45">
+ <layer id="7" name="Slime" width="80" height="45">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -261,6 +1219,55 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22081,22082,22083,22084,22085,22086,22087,22088,22089,22090,22091,22092,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22093,22094,22095,22096,22097,22098,22099,22100,22101,22102,22103,22104,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22105,22106,22107,22108,22109,22110,22111,22112,22113,22114,22115,22116,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22117,22118,22119,22120,22121,22122,22123,22124,22125,22126,22127,22128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="8" name="Portal" width="80" height="45">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22129,22130,22131,22132,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22133,22134,22135,22136,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22137,22138,22139,22140,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22141,22142,22143,22144,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22145,22146,22147,22148,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22149,22150,22151,22152,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22153,22154,22155,22156,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
