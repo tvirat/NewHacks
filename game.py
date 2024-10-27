@@ -7,7 +7,8 @@ import pygame
 from settings import WIDTH, HEIGHT, FPS, TITLE
 import random
 from jump import handle_jump, is_jumping, velocity_y, jump_height, gravity
-import backdrop
+import pytmx
+from pytmx import load_pygame
 
 # -----------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------- Global Variable Declaration -----------------------------------
@@ -60,6 +61,157 @@ obstacle_image = pygame.transform.scale(obstacle_image, (50, 50))  # Adjust size
 # Load and scale the slime image
 slime_image = pygame.image.load('images/slime.png').convert_alpha()  # Ensure transparency
 slime_image = pygame.transform.scale(slime_image, (50, 50))  # Adjust size as needed
+
+class Terrain:
+    def __init__(self, tmx_data):
+        self.tmx_data = tmx_data
+        self.collision_rects = []
+        self.load_collision_tiles()
+    
+    def load_collision_tiles(self):
+        """Load collision rectangles from tiles with specific class properties"""
+        for layer in self.tmx_data.visible_layers:
+            if hasattr(layer, 'data'):  # If it's a tile layer
+                for x, y, gid in layer.iter_data():
+                    if gid:  # If there's a tile at this position
+                        tile_props = self.tmx_data.get_tile_properties_by_gid(gid)
+                        if tile_props and 'type' in tile_props:
+                            # Check if the tile has a type that should collide
+                            if tile_props['type'] in ['terrain', 'tree', 'platform', 'solid']:  
+                                # Convert tile coordinates to pixel coordinates
+                                pixel_x = x * self.tmx_data.tilewidth
+                                pixel_y = y * self.tmx_data.tileheight
+                                # Create a collision rectangle
+                                rect = pygame.Rect(
+                                    pixel_x, 
+                                    pixel_y, 
+                                    self.tmx_data.tilewidth, 
+                                    self.tmx_data.tileheight
+                                )
+                                # Store the type type along with the rectangle
+                                self.collision_rects.append({
+                                    'rect': rect,
+                                    'type': tile_props['type']
+                                })
+    
+    def draw(self, surface, camera_offset=(0, 0)):
+        """Draw the terrain collision boxes (for debugging)"""
+        colors = {
+            'terrain': (255, 0, 0),    # Red for ground
+            'tree': (0, 255, 0),      # Green for walls
+            'platform': (0, 0, 255),  # Blue for platforms
+            'solid': (255, 255, 0)    # Yellow for solid objects
+        }
+        
+        for collision in self.collision_rects:
+            rect = collision['rect'].copy()
+            rect.x -= camera_offset[0]
+            rect.y -= camera_offset[1]
+            color = colors.get(collision['type'], (255, 255, 255))
+            pygame.draw.rect(surface, color, rect, 1)
+    
+    def check_collision(self, player_rect, velocity_y=0):
+        """Check collision between player and terrain"""
+        collisions = {
+            'top': False,
+            'bottom': False,
+            'left': False,
+            'right': False,
+            'type': None  # Initialize type as None by default
+        }
+        
+        collision_found = False
+        for collision in self.collision_rects:
+            rect = collision['rect']
+            
+            if player_rect.colliderect(rect):
+                collision_found = True
+                # Store the type of the tile we're colliding with
+                collisions['type'] = collision['type']
+                
+                # Calculate overlap
+                overlap_x = min(player_rect.right - rect.left, rect.right - player_rect.left)
+                overlap_y = min(player_rect.bottom - rect.top, rect.bottom - player_rect.top)
+                
+                # Resolve collision based on the smallest overlap
+                if overlap_x < overlap_y:
+                    if player_rect.centerx < rect.centerx:
+                        player_rect.right = rect.left
+                        collisions['right'] = True
+                    else:
+                        player_rect.left = rect.right
+                        collisions['left'] = True
+                else:
+                    if player_rect.centery < rect.centery:
+                        player_rect.bottom = rect.top
+                        collisions['bottom'] = True
+                    else:
+                        player_rect.top = rect.bottom
+                        collisions['top'] = True
+        
+        return collisions
+
+class Player:
+    def __init__(self, x, y):
+        self.rect = pygame.Rect(x, y, 50, 50)  # Adjust size as needed
+        self.velocity_y = 0
+        self.is_jumping = False
+        self.on_ground = False
+        self.jump_height = -20
+        self.gravity = 0.8
+        self.speed = 1  # Your monster_speed value
+    
+    def handle_movement(self, keys, terrain, dt):
+        # Store old position for collision checking
+        old_position = self.rect.copy()
+        
+        # Horizontal movement
+        if keys[pygame.K_LEFT]:
+            self.rect.x -= self.speed
+        if keys[pygame.K_RIGHT]:
+            self.rect.x += self.speed
+        
+        # Check horizontal collisions
+        collisions = terrain.check_collision(self.rect, self.velocity_y)
+        if collisions['left'] or collisions['right']:
+            self.rect = old_position
+        
+        # Jump input
+        if keys[pygame.K_UP] and self.on_ground and not self.is_jumping:
+            self.is_jumping = True
+            self.on_ground = False
+            self.velocity_y = self.jump_height
+        
+        # Apply gravity
+        self.velocity_y += self.gravity
+        self.rect.y += self.velocity_y
+        
+        # Check vertical collisions
+        collisions = terrain.check_collision(self.rect, self.velocity_y)
+        
+        # Handle collision responses
+        if collisions['bottom']:
+            self.rect.bottom = old_position.bottom
+            self.on_ground = True
+            self.is_jumping = False
+            self.velocity_y = 0
+            
+            # Special collision handling for different tile types
+            if collisions['type'] == 'mushroom':
+                self.velocity_y = self.jump_height * 1.5  # Bigger bounce on mushrooms
+                self.is_jumping = True
+                self.on_ground = False
+        
+        if collisions['top']:
+            self.rect.top = old_position.top
+            self.velocity_y = 0
+        
+        # Prevent falling through the floor (backup check)
+        if self.rect.bottom >= HEIGHT - 100:
+            self.rect.bottom = HEIGHT - 100
+            self.on_ground = True
+            self.is_jumping = False
+            self.velocity_y = 0
 
 # -----------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------- Global Functions ----------------------------------------------
@@ -174,12 +326,15 @@ background_speed = 20
 score = 0
 
 # Main Game loop/function
-def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score):
+def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score, velocity_y):
     # Initialize/reset variables here
-    monster_rect.center = (24, HEIGHT - 135)  # Reset player position
+    player = Player(24, HEIGHT - 135)  
     coins.clear()  # Clear coins list
     obstacles.clear() 
-    slimes.clear() 
+    slimes.clear()
+    # Create the terrain object
+    tmx_data = load_pygame('assets/levels/first_level.tmx')
+    terrain = Terrain(tmx_data) 
     running = True
     while running:
         dt = clock.tick(FPS) / 1000  # Amount of seconds between each loop
@@ -187,77 +342,49 @@ def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score)
             if event.type == pygame.QUIT:
                 running = False
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]:
-            monster_rect.x -= monster_speed  # Move monster left
-            background_x += background_speed  # Move background right
-        if keys[pygame.K_RIGHT]:
-            monster_rect.x += monster_speed  # Move monster right
-            background_x -= background_speed  # Move background left
         
-        # Adjust monster_rect.y before handling jump to ensure it starts from the correct height
-        if monster_rect.bottom > HEIGHT - 100:
-            monster_rect.bottom = HEIGHT - 100
+        # Handle player movement
+        player.handle_movement(keys, terrain, dt)
         
-        handle_jump(monster_rect, dt)  # Call handle_jump to manage jumping
-
-        # Define jump height and minimum height
-        max_jump_height = 150  # Adjust according to jump capabilities
-        min_height = HEIGHT - 135
-
-        # Generate coins randomly
-        if random.randint(0, 100) < 5:  # Adjust probability as needed
-            coin_x = random.randint(0, WIDTH - 30)
-            coin_y = random.randint(min_height - max_jump_height, min_height)  # Restrict y-coordinate within jump range
-            coins.append(pygame.Rect(coin_x, coin_y, 30, 30))
-
-        # Generate obstacles randomly
-        if random.randint(0, 100) < 4:  # Adjust probability as needed
-            obstacle_x = random.randint(0, WIDTH - 50)
-            obstacle_y = random.randint(min_height - max_jump_height, min_height)
-            obstacles.append(pygame.Rect(obstacle_x, obstacle_y, 50, 50))
-
-        # Generate slimes randomly
-        if random.randint(0, 100) < 4:  # Adjust probability as needed
-            slime_x = random.randint(0, WIDTH - 50)
-            slime_y = min_height + 50
-            slimes.append(pygame.Rect(slime_x, slime_y, 50, 50))
-
-        # To ensure seamless scrolling
+        # Handle background wrapping
         if background_x >= WIDTH:
             background_x = 0
         elif background_x <= -WIDTH:
             background_x = 0
 
-        # Check for collisions between monster and coins
+        # Check for coin collisions
         for coin in coins[:]:
-            if monster_rect.colliderect(coin):
+            if player.rect.colliderect(coin):
                 coins.remove(coin)
-                score += 1  # Increase score
-
-        # Check for collisions between monster and obstacles
-        for obstacle in obstacles[:]:
-            if monster_rect.colliderect(obstacle):
-                obstacles.remove(obstacle)
-                lives -= 1  # Decrease lives
-                if lives == 0:
-                    running = False  # Game over if no lives left
+                score += 1
         
-        # Check for collisions between monster and slimes
-        for slime in slimes[:]:
-            if monster_rect.colliderect(slime):
-                obstacles.remove(slime)
-                lives -= 1  # Decrease lives
+        # Check for obstacle/slime collisions
+        for obstacle in obstacles[:]:
+            if player.rect.colliderect(obstacle):
+                obstacles.remove(obstacle)
+                lives -= 1
                 if lives == 0:
-                    running = False  # Game over if no lives left
+                    running = False
+        
+        for slime in slimes[:]:
+            if player.rect.colliderect(slime):
+                slimes.remove(slime)
+                lives -= 1
+                if lives == 0:
+                    running = False
 
-
-        # Draw everything
-        screen.fill((0, 0, 0))  # Clear screen
+        # Drawing
+        screen.fill((0, 0, 0))
         screen.blit(background, (background_x, 0))
         screen.blit(background, (background_x - WIDTH, 0))
         screen.blit(background, (background_x + WIDTH, 0))
-        screen.blit(monster, monster_rect.topleft)
-
+        
+        # Draw terrain collision boxes (optional, for debugging)
+        #terrain.draw(screen, (background_x, 0))
+        
+        # Draw player (using your monster image)
+        screen.blit(monster, player.rect.topleft)
+        
         # Draw lives counter
         draw_text('Lives Left:', font, button_text, screen, WIDTH - 198, 13.5)
         draw_lives(screen, WIDTH - 32, 6.5, lives)
@@ -274,7 +401,7 @@ def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score)
         pygame.display.flip()
         clock.tick(FPS)
 
-main_game_loop(background_x, coins, obstacles, [], screen, lives, score)
+main_game_loop(background_x, coins, obstacles, [], screen, lives, score, velocity_y)
 
 # Print the score after quitting the game
 print(f"Score: {score}")

@@ -4,7 +4,7 @@ from settings import HEIGHT
 # Add these variables
 is_jumping = False
 velocity_y = 0
-jump_height = -15
+jump_height = -30
 gravity = 0.8
 
 def handle_jump(monster_rect, dt):
