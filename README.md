@@ -17,14 +17,6 @@ In today’s fast-paced world, people need a light-hearted escape from stress. W
 - **Custom Maps & Assets:** Designed maps with Tiled and graphics using Adobe Express.
 - **High Score Tracking:** Scores stored in MongoDB for future replayability and competition.
 
-# Technical Details
-
-- **Game Engine:** Pygame for core mechanics and character control.
-- **Map Design:** Custom levels built using Tiled and loaded with PyTMX.
-- **Database:** MongoDB for tracking high scores and storing user data.
-- **Dialogues & Story Expansion:** OpenAI’s API for unique in-game character dialogues.
-- **Design Tools:** Adobe Express for creating game assets and graphics.
-
 # How to run
 
 - **Clone the Repository:**
@@ -44,6 +36,14 @@ pip install -r requirements.txt
 ```python
 python game.py
 ```
+
+# Technical Details
+
+- **Game Engine:** Pygame for core mechanics and character control.
+- **Map Design:** Custom levels built using Tiled and loaded with PyTMX.
+- **Database:** MongoDB for tracking high scores and storing user data.
+- **Dialogues & Story Expansion:** OpenAI’s API for unique in-game character dialogues.
+- **Design Tools:** Adobe Express for creating game assets and graphics.
 
 # Future Prospects
 
