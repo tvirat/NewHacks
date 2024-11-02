@@ -24,3 +24,30 @@ In today’s fast-paced world, people need a light-hearted escape from stress. W
 - **Database:** MongoDB for tracking high scores and storing user data.
 - **Dialogues & Story Expansion:** OpenAI’s API for unique in-game character dialogues.
 - **Design Tools:** Adobe Express for creating game assets and graphics.
+
+# How to run
+
+- **Clone the Repository:**
+
+```python
+git clone [<repo_url>](https://github.com/tvirat/NewHacks.git)
+```
+
+- **Install Dependencies:**
+
+```python
+pip install -r requirements.txt
+```
+
+- **Run the Game:**
+
+```python
+python game.py
+```
+
+# Future Prospects
+
+- **Web App Deployment:** We plan to host Shroom Rush as a web app on platforms like Vercel, allowing easier access with a public domain.
+- **Additional Levels & Story:** Expanding Finley’s journey with more levels and richer story elements.
+- **Enhanced User Experience:** User authentication for personalized score tracking and leaderboard integration.
+- **Social Features:** Adding leaderboard and community challenges to increase replayability.
