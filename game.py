@@ -7,11 +7,14 @@ import pygame
 from settings import WIDTH, HEIGHT, FPS, TITLE
 import random
 from jump import handle_jump, is_jumping, velocity_y, jump_height, gravity
-import backdrop
+import pygame.mixer
+
 
 # -----------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------- Global Variable Declaration -----------------------------------
 # -----------------------------------------------------------------------------------------------------------------------------------
+
+pygame.mixer.init()
 
 # List to hold coin positions
 coins = []
@@ -91,7 +94,7 @@ def start_screen():
     click = False
     while True:
         screen.blit(start_background, (0, 0))
-        title_text = 'Your Game Title'  # Replace with your actual game title
+        title_text = 'SHROOM RUSH'  # Replace with your actual game title
         title_font = pygame.font.SysFont(None, 72)  # Larger font for the title
         draw_text(title_text, title_font, button_bg, screen, WIDTH // 2 - title_font.size(title_text)[0] // 2, HEIGHT // 2 - title_font.size(title_text)[1] - 100)
         draw_text('High Score: {}'.format(high_score), font, button_bg, screen, 10, 10)
@@ -175,11 +178,18 @@ score = 0
 
 # Main Game loop/function
 def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score):
+    
     # Initialize/reset variables here
     monster_rect.center = (24, HEIGHT - 135)  # Reset player position
     coins.clear()  # Clear coins list
     obstacles.clear() 
     slimes.clear() 
+    # Load the music file
+    pygame.mixer.music.load('background_music.mp3')
+
+    # Play the music
+    pygame.mixer.music.play(-1)  # -1 means the music will loop indefinitely
+
     running = True
     while running:
         dt = clock.tick(FPS) / 1000  # Amount of seconds between each loop
@@ -223,6 +233,7 @@ def main_game_loop(background_x, coins, obstacles, slimes, screen, lives, score)
             slimes.append(pygame.Rect(slime_x, slime_y, 50, 50))
 
         # To ensure seamless scrolling
+        
         if background_x >= WIDTH:
             background_x = 0
         elif background_x <= -WIDTH:
@@ -292,7 +303,7 @@ def end_screen(final_score):  # Remove total_time parameter
     global click  # Use global click to ensure it's recognized
     while True:
         screen.blit(start_background, (0, 0))  # Use the start screen background
-        draw_text(f'Final Score: {final_score}', font, button_text, screen, WIDTH // 2 - 100, HEIGHT // 2 - 100)
+        draw_text(f'Final Score: {final_score}', font, button_text, screen, WIDTH // 2 - 60, HEIGHT // 2 - 100)
         mx, my = pygame.mouse.get_pos()
         button_play_again = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 2, 200, 50)
         button_exit = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 2 + 60, 200, 50)
